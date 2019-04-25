@@ -1,5 +1,8 @@
-#include <stdio.h>
+
 #include <cs50.h>
+//alphabetical
+#include <stdio.h>
+
 
 int main (void)
 {
