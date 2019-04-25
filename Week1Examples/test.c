@@ -11,7 +11,8 @@ int main (void)
     //needs quotes not single quotes
     //single quotes will send ascii value to the code
     //clang compiles the language, makes an a.out file
-    //
+    //\ escapes the flow of the code and overides the standard behavior of that code
+    //so the \n escapes the flow of the "" and allows you to access the property of the n character
     //make does both
     printf("Hello, World\n");
 }
