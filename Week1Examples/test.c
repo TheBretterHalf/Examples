@@ -7,7 +7,13 @@
 //void similar to null, not sending any information
 int main (void)
 {
-    printf("Hello, World")
+    //print format
+    //needs quotes not single quotes
+    //single quotes will send ascii value to the code
+    //clang compiles the language, makes an a.out file
+    //
+    //make does both
+    printf("Hello, World\n");
 }
 // int main(void)
 // {
