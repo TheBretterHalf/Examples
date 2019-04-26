@@ -20,6 +20,9 @@
 // }
 int main(void)
 {
+    //% a placeholder s is identifying it as a string
+    //order of the percent symbols is the order of the variables trailing
+    //common syntax of c uses small case as a standard but uses camel case going forward
     string name = get_string("What is your name?\n");
     printf("hello, %s\n", name);
 }
