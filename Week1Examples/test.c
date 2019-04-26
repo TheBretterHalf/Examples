@@ -30,8 +30,9 @@
 
 int main (void)
 {
+    string gender = get_string("Mr or Mrs?\n");
     string firstname = get_string("What is your first name?\n");
     string lastname = get_string("What is your last name?\n");
 
-    printf("Hello, %s %s\n", firstname, lastname);
+    printf("Hello %s %s, %s\n", gender, lastname, firstname);
 }
