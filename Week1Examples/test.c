@@ -41,9 +41,12 @@ int main (void)
     //int myNum = 36;
     //you can add %.1f\n to add the formatter to bring in the decimal to the noted place and it will round the number
     //you can add another integer %.8\n to change the trailing decimal places to force it close to the exact #
+    //% (modulo) will return the remainder of the division
     int myFloat = round(3.87*100);
     int other = round(1.52*100);
     int total = myFloat+other;
+    int cents = total % 100;
+    int dollars = total/100;
     float rightnumber = (float)total/100;
     float division = (float)78/(float)15;
 
