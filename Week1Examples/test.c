@@ -28,11 +28,23 @@
 //     printf("hello, %s\n", name);
 // }
 
+//get int for a comparator
+//floating point referrs to a decimal
+
 int main (void)
 {
-    string gender = get_string("Mr or Mrs?\n");
-    string firstname = get_string("What is your first name?\n");
-    string lastname = get_string("What is your last name?\n");
+    // string gender = get_string("Mr or Mrs?\n");
+    // string firstname = get_string("What is your first name?\n");
+    // string lastname = get_string("What is your last name?\n");
 
-    printf("Hello %s %s, %s\n", gender, lastname, firstname);
+    //int myNum = 36;
+    float myFloat = 3.87;
+    float other = 1.52;
+    float division = 78/15;
+
+    printf ("adding the numbers: %f\n", myFloat + other);
+
+    printf ("the division %f\n", division);
+
+    //printf("Hello %s %s, %s\n", gender, lastname, firstname);
 }
