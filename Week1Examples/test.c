@@ -1,5 +1,6 @@
 
 #include <cs50.h>
+#include <math.h>
 //alphabetical
 #include <stdio.h>
 
@@ -36,15 +37,19 @@ int main (void)
     // string gender = get_string("Mr or Mrs?\n");
     // string firstname = get_string("What is your first name?\n");
     // string lastname = get_string("What is your last name?\n");
-
+    //float makes them floating point numbers, when you put the numbers through a process it rounds to the nearest integer or you can add a .0
     //int myNum = 36;
-    float myFloat = 3.87;
-    float other = 1.52;
-    float division = 78/15;
+    //you can add %.1f\n to add the formatter to bring in the decimal to the noted place and it will round the number
+    //you can add another integer %.8\n to change the trailing decimal places to force it close to the exact #
+    int myFloat = round(3.87*100);
+    int other = round(1.52*100);
+    int total = myFloat+other;
+    float rightnumber = (float)total/100;
+    float division = (float)78/(float)15;
 
-    printf ("adding the numbers: %f\n", myFloat + other);
+    printf ("adding the numbers: %f\n", rightnumber);
 
-    printf ("the division %f\n", division);
+    printf ("the division %.1f\n", division);
 
     //printf("Hello %s %s, %s\n", gender, lastname, firstname);
 }
