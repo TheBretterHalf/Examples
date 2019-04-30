@@ -13,9 +13,17 @@
 int main(void)
 {
     int year = get_int("Year: ");
-    if (year%4==0 && year%100!=0 && year%400==0)
+    if (year%400==0)
     {
         printf("True");
-    }else printf("False");
+    }
+    else if(year%100!=0)
+    {
+        printf("True");
+    }
+    else if(year%4==0)
+    {
+        printf("True");
+    } else printf("False");
 }
 
