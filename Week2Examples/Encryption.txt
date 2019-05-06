@@ -1,0 +1,13 @@
+Encryption
+-clipper chip
+Ceaser Cypher
+-if key is 2, and letter is C, then result is A
+-isalpha as a reference for ceaser cypher
+
+%
+-getting even or odd numbers
+-is it divisible by (evenly grouping)
+-ranging numbers
+--keeping a number inputs within a set value
+--x%12<=1 or dowhile to keep within range
+--divide limiting number//top number and take remainder and add to starting value
