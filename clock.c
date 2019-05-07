@@ -12,17 +12,31 @@ int main(void)
         sthour = get_int("Starting Hour: ");
         hour = get_int("Hours passed: ");
     }
-    while (sthour>12);
-    if(hour<0)
+    while (sthour > 12);
+    if (hour < 0)
     {
-        int hoursneg=abs((hour+sthour)%12);
-        printf("The time is %i\n", hoursneg);
+        int hoursneg = (sthour + (hour % 12)) + 12;
+        if (hoursneg == 0)
+        {
+            printf("The time is 12\n");
+        }
+        else
+        {
+            printf("The time is %i\n", hoursneg);
+        }
     }
     else
     {
-    int hours = (sthour+hour)%12;
-    printf ("The time is %i\n", hours);
-    int revolutions = (sthour+hour)/12;
-    printf ("Number of Clock Revolutions %i\n", revolutions);
+        int hours = (sthour + hour) % 12;
+        if (hours == 0)
+        {
+            printf("The time is 12\n");
+        }
+        else
+        {
+            printf("The time is %i\n", hours);
+            int revolutions = (sthour + hour) / 12;
+            printf "Number of Clock Revolutions %i\n", revolutions);
+        }
     }
 }
