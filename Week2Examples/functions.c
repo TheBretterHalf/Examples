@@ -6,14 +6,14 @@ int encrypt(int iItem, key)
 {
     return iItem + Key
 }
-int getMod (int imin)
-{
-    return imin + 1
-}
+// int getMod (int imin)
+// {
+//     return imin + 1
+// }
 
 int itemIndex = getItemIndex(item, rmin);
 int encryptedKey = encrypt(itemIndex, key);
-int modifier = getMod(iMin);
+int modifier = imin + 1;
 int returnToRange = rMin;
 int convertedIndex = decrypted % modifier
 
