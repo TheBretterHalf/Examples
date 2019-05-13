@@ -1,0 +1,4 @@
+Ceaser
+-try to reassign to another value when wrapping around the ++26 values
+-look at clock to figure out backlooping
+-(min-min)to(max-min) giving # of positions...not value
