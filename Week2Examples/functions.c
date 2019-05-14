@@ -12,6 +12,8 @@ int encrypt(int iItem, key)
 // }
 
 int itemIndex = getItemIndex(item, rmin);
+printf("Item Index: %i\n", itemIndex)
+//item index should be 17
 int encryptedKey = encrypt(itemIndex, key);
 int modifier = imin + 1;
 int returnToRange = rMin;
