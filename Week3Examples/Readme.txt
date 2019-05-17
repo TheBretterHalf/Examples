@@ -8,6 +8,12 @@ byte rgbt Blue
 byte rgbt Green
 } RGBTRIPLE
 
+RGBTRIPLE aPixel;
+
+aPixel.rgbtREd = 255;
+aPixel.rgbtBlue = 255;
+aPixel.rgbtGreen = 0;
+
 byte is less data than int
 
 int main (void)
@@ -21,6 +27,17 @@ byte rgb[3]=1,2,3;r,g,b;
 
 or do
 
+byte reds[4000]
+byte green[4000]
+byte blue[4000]
+
+typedef struct{
+--type definition structure
+--defines your own type as the letters you put after the typedot struct
+--
+
+
+}
 
 
 }
