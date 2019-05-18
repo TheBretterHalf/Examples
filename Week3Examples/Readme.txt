@@ -34,10 +34,14 @@ byte blue[4000]
 typedef struct{
 --type definition structure
 --defines your own type as the letters you put after the typedot struct
---
+--look up in code^^^
 
 
 }
 
 
 }
+
+int * intpointer;
+intpointer = 5;
+--not pointing at the number five but pointing to the address where 5 is stored.
