@@ -45,3 +45,4 @@ typedef struct{
 int * intpointer;
 intpointer = 5;
 --not pointing at the number five but pointing to the address where 5 is stored.
+
