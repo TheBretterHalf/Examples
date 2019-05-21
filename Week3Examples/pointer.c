@@ -6,9 +6,10 @@ int add (int x, int y)
     return x + y;
 }
 int modifier(int* x, int y)
+//this line the star creates a data point for the variable to store inside
 {
     //go to where x is pointing and add that value
-    *x+=7;
+    *x+=10;
 
     //adds 7 to the total
     return *x + y;
@@ -22,9 +23,9 @@ int main (void)
 
     int b = 13;
     //printf("hello\n");
-    printf("The total is %i\n", add(a,b));
+    printf("The total is %i\n", add(a, b));
     printf("The modified adder is %i\n", modifier(&a,b));
-    printf("Running normal add again: %i\n", add(a,b));
+    printf("Running normal add again: %i\n", add(a, b));
 
     int* intPointer = &b;
     //int *intPointer = &b; is the same as the above line
