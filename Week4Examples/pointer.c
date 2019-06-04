@@ -67,6 +67,7 @@ void addNode(int value)
 
 void removeNode(int value)
 {
+    //if empty list will crash
     NODE *trav = rootNode;
     if (rootNode->value == value)
     {
