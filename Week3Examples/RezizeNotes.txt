@@ -1,0 +1,18 @@
+Resize
+-draw out on paper
+-new width is biwidth*factor
+-RGB TRIPLE row [biwidth*factor]
+-once row is filled, move to next row
+-datatype identifier [data size]
+-=> size*sizeof(datatype) = bytes needed
+-reserve in memory # of bytes needed, return starting address
+--ARRAY MATH:
+    -id[i]
+    -address+sizeof(type)*index
+    -each integer is 4bytes
+-address+(sizeof(type)*i%4)
+printf("biWidth: i\n", bi.biwidth);
+replace with bisize
+-biWidth, biHeight, and biSizeImage
+-Pixel=3bytes (RGBTRIPLE)
+-you have to make new bitmapfileheader before fwrite
