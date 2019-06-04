@@ -14,6 +14,9 @@ typedef struct NODE
     struct NODE *next;
 } NODE;
 
+//
+NODE *rootNode;
+
 int add(int *x, int y)
 {
     *x += 3;
@@ -24,17 +27,24 @@ int add(int *x, int y)
 // once at end print out last value
 // once at the end add the new node to the list
 
-void addNode(int value, NODE *homeNode)
+void addNode(int value)
 {
-    NODE *trav = homeNode;
+    NODE *newNode = malloc(sizeof(NODE));
+    newNode->value = value;
+    newNode->next = NULL;
+
+    if(rootNode==NULL)
+    {
+        rootNode = newNode;
+        return;
+    }
+
+    NODE *trav = rootNode;
 
     while(trav->next != NULL)
     {
         trav = trav->next;
     }
-    NODE *newNode = malloc(sizeof(NODE));
-    newNode->value = value;
-    newNode->next = NULL;
     trav->next = newNode;
     // while(true)
     // {
@@ -55,39 +65,43 @@ void addNode(int value, NODE *homeNode)
 
 }
 
-void displayList(NODE* trav)
+void removeNode(int value)
+{
+    NODE *trav = rootNode;
+    if (rootNode->value == value)
+    {
+        rootNode = rootNode->next;
+        free(trav);
+        return;
+    }
+}
+
+void displayList()
 {
     //should display
     // 5, 10, 8, 17
 
-    printf("%i,", trav->value);
+    NODE* trav=rootNode;
     while(trav->next != NULL)
     {
+        printf("%i, ", trav->value);
         trav = trav->next;
-        printf("%i", trav->value);
-        if(trav->next!=NULL)
-        {
-            printf(",");
-        }
-        else
-        {
-            printf("\n");
-            return;
-        }
-
     }
-
+    printf("%i\n", trav->value);
 }
 
 int main(void)
 {
-    NODE rootNode;
-    rootNode.value = 5;
-    rootNode.next = NULL;
-    addNode(10, &rootNode);
-    addNode(8, &rootNode);
-    addNode(17, &rootNode);
-    displayList(&rootNode);
+    // NODE rootNode;
+    // rootNode.value = 5;
+    // rootNode.next = NULL;
+    addNode(5);
+    addNode(10);
+    addNode(8);
+    addNode(17);
+    removeNode(5);
+    displayList();
+    //free(rootNode );
 
     // printf("%i\n%i\n", rootNode.next->next->value, rootNode.next->next->next->value);
 
