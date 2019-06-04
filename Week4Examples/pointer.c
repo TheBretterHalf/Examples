@@ -55,10 +55,28 @@ void addNode(int value, NODE *homeNode)
 
 }
 
-void displayList(node* trav)
+void displayList(NODE* trav)
 {
     //should display
     // 5, 10, 8, 17
+
+    printf("%i,", trav->value);
+    while(trav->next != NULL)
+    {
+        trav = trav->next;
+        printf("%i", trav->value);
+        if(trav->next!=NULL)
+        {
+            printf(",");
+        }
+        else
+        {
+            printf("\n");
+            return;
+        }
+
+    }
+
 }
 
 int main(void)
