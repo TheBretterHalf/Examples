@@ -75,6 +75,15 @@ void removeNode(int value)
         free(trav);
         return;
     }
+    while (trav->next->value != value)
+    {
+        trav = trav->next;
+    }
+    NODE *temp = trav->next;
+    //trav->next = temp-> next; same code
+    trav->next = trav->next->next;
+    free (temp);
+
 }
 
 void displayList()
@@ -100,7 +109,7 @@ int main(void)
     addNode(10);
     addNode(8);
     addNode(17);
-    removeNode(5);
+    removeNode(8);
     displayList();
     //free(rootNode );
 
