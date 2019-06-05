@@ -86,6 +86,13 @@ void removeNode(int value)
 
 }
 
+void freelist()
+{
+    //loop through find last item send value to remove node
+    //loop through find second to last remove item and set to null until the head remains.
+    //recursively iterate through the list to remove all items
+}
+
 void displayList()
 {
     //should display
@@ -125,3 +132,5 @@ int main(void)
     // *intPointer = 47;
     // printf("b is %i\n", b);
 }
+
+free(rootNode);
