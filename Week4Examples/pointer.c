@@ -83,15 +83,41 @@ void removeNode(int value)
     //trav->next = temp-> next; same code
     trav->next = trav->next->next;
     free (temp);
-
 }
 
 void freelist()
 {
     //three methods for removing list
     //loop through find last item send value to remove node
+
+        // while(rootNode->next != NULL)
+    // {
+    //     NODE *trav = rootNode;
+    //     while (trav->next != NULL)
+    //     {
+    //         trav = trav->next;
+    //     }
+    //     removeNode(trav->value);
+    // }
+    // free(rootNode);
+
     //loop through find second to last remove item and set to null until the head remains.
+
+    while(rootNode->next !=NULL)
+    {
+        NODE *trav = rootNode;
+        while (trav->next->next !=NULL)
+        {
+            trav = trav->next;
+        }
+        free(trav->next);
+        trav->next = NULL;
+    }
+    free(rootNode);
+
     //recursively iterate through the list to remove all items
+
+
 }
 
 void displayList()
@@ -117,8 +143,9 @@ int main(void)
     addNode(10);
     addNode(8);
     addNode(17);
-    removeNode(8);
+    //removeNode(8);
     displayList();
+    freelist();
     //free(rootNode );
 
     // printf("%i\n%i\n", rootNode.next->next->value, rootNode.next->next->next->value);
@@ -134,4 +161,4 @@ int main(void)
     // printf("b is %i\n", b);
 }
 
-free(rootNode);
+//free(rootNode);
