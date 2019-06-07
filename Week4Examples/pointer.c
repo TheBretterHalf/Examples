@@ -116,7 +116,44 @@ void freelist()
     free(rootNode);
 
     //recursively iterate through the list to remove all items
+}
+//super efficient freelist
+// void freeList()
+// {
+//     while (rootNode)
+//     {
+//         removeNode(rootNode->value);
+//     }
+// }
 
+void freeList (NODE *curNode)
+{
+    if (curNode->next == NULL)
+    {
+        free(curNode);
+        return;
+    }
+    //I have a child ask it to free itself
+    freeList(curNode->next);
+    //my child freed itself
+    free(curNode);
+    return;
+}
+
+//asking node whether it is NULL and freeing itself
+void freeListSelf()
+{
+    while(rootNode->next !=NULL)
+    {
+        NODE *trav = rootNode;
+        while (trav->next->next !=NULL)
+        {
+            trav = trav->next;
+        }
+        free(trav->next);
+        trav->next = NULL;
+    }
+    free(rootNode);
 
 }
 
@@ -145,7 +182,7 @@ int main(void)
     addNode(17);
     //removeNode(8);
     displayList();
-    freelist();
+    freeList(rootNode);
     //free(rootNode );
 
     // printf("%i\n%i\n", rootNode.next->next->value, rootNode.next->next->next->value);
