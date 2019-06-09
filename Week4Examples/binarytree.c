@@ -25,6 +25,10 @@ void addNode (int value)
     }
 }
 
+void displayTreeOnEnter(NODE *curNode)
+{}
+
+
 //
 
 int main (void)
