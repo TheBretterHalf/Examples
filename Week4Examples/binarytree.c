@@ -28,7 +28,7 @@ void addNode (int value)
 void displayTreeOnEnter(NODE *curNode)
 {}
 
-
+void displayTreeOnDeparture(NODE *curNode)
 //hashtable
 
 int main (void)
