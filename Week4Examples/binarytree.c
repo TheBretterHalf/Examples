@@ -30,17 +30,32 @@ void addNode (int value)
     //if value of new node is less the root node attach to low
     //else add to high
     //input while loop to confirm NULL
+    NODE *trav = rootNode;
     while(1)
     {
-        if (newNode->value < rootNode->value)
+        if (newNode->value < trav->value)
         {
-            rootNode->low = newNode;
+            if(trav->low == NULL)
+            {
+                trav->low = newNode;
+                return;
+            }
+            trav = trav->low;
+            //restart the loop
+            continue;
             return;
         }
         else
         {
-            rootNode->high = newNode;
+            if(trav->high == NULL)
+            {
+                rootNode->high = newNode;
+                return;
+            }
+            trav = trav->high;
+            continue;
             return;
+
         }
 
     }
