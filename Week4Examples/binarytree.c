@@ -29,7 +29,7 @@ void displayTreeOnEnter(NODE *curNode)
 {}
 
 
-//
+//hashtable
 
 int main (void)
 {
