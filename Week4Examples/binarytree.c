@@ -62,12 +62,11 @@ void addNode (int value)
 
 void displayTreeOnEnter(NODE *curNode)
 {
-    printf("%i, ", curNode->value);
+    //printf("%i, ", curNode->value);
     if (curNode->low != NULL)
     {
         displayTreeOnEnter(curNode->low);
     }
-
     if (curNode->high)
     {
         displayTreeOnEnter(curNode->high);
@@ -88,15 +87,34 @@ void displayTreeOnDeparture(NODE *curNode)
     {
         displayTreeOnDeparture(curNode->high);
     }
-    printf("%i, ", curNode->value);
+    //printf("%i, ", curNode->value);
 }
-// int doesContain(int value)
-// {
-//     //search the tree
-//     //return 0 if not in the tree
-//     //return 1 if the value does exist in the tree
-//     //hashtable
-// }
+int doesContain(int value)
+{
+    //printf("%i, ", curNode->value);
+    NODE *curNode = rootNode;
+    if(rootNode->value == value)
+    {
+        printf("Match");
+        return 0;
+    }
+    //printf("%i", curNode->low->value);
+    if (curNode->low->value != value)
+    {
+        //printf("No Match");
+        displayTreeOnEnter(curNode->low);
+        //printf("%i", curNode->low->value);
+    }
+    if (curNode->high->value != value)
+    {
+        //printf("No Match");
+        displayTreeOnEnter(curNode->high);
+        //printf("%i", curNode->low->value);
+    }
+    printf("Match");
+    return 0;
+
+}
 
 int main (void)
 {
@@ -118,9 +136,9 @@ int main (void)
     addNode(7);
 
     //displayTreeOnEnter(rootNode);
-    displayTreeOnDeparture(rootNode);
+    //displayTreeOnDeparture(rootNode);
+    doesContain(6);
     printf("\n");
-
 }
 
 //MVP, get 8 and 15 working.
