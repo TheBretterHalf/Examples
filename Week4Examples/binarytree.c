@@ -49,12 +49,11 @@ void addNode (int value)
         {
             if(trav->high == NULL)
             {
-                rootNode->high = newNode;
+                trav->high = newNode;
                 return;
             }
             trav = trav->high;
             continue;
-            return;
 
         }
 
@@ -62,11 +61,42 @@ void addNode (int value)
 }
 
 void displayTreeOnEnter(NODE *curNode)
-{}
+{
+    printf("%i, ", curNode->value);
+    if (curNode->low != NULL)
+    {
+        displayTreeOnEnter(curNode->low);
+    }
+
+    if (curNode->high)
+    {
+        displayTreeOnEnter(curNode->high);
+    }
+}
 
 void displayTreeOnDeparture(NODE *curNode)
-{}
-//hashtable
+{
+    //4, 7, 6, 5, 9, 8, 13, 18, 20, 17, 15, 10
+    //doesnt print node until the child prints itself first
+    //printf("%i, ", curNode->value);
+    if (curNode->low != NULL)
+    {
+        displayTreeOnDeparture(curNode->low);
+    }
+
+    if (curNode->high != NULL)
+    {
+        displayTreeOnDeparture(curNode->high);
+    }
+    printf("%i, ", curNode->value);
+}
+// int doesContain(int value)
+// {
+//     //search the tree
+//     //return 0 if not in the tree
+//     //return 1 if the value does exist in the tree
+//     //hashtable
+// }
 
 int main (void)
 {
@@ -86,6 +116,10 @@ int main (void)
     addNode(4);
     addNode(13);
     addNode(7);
+
+    //displayTreeOnEnter(rootNode);
+    displayTreeOnDeparture(rootNode);
+    printf("\n");
 
 }
 
