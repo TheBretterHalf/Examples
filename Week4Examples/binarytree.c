@@ -89,33 +89,26 @@ void displayTreeOnDeparture(NODE *curNode)
     }
     //printf("%i, ", curNode->value);
 }
-int doesContain(int value)
+int doesContain(int value, NODE *curNode)
 {
-    //printf("%i, ", curNode->value);
-    NODE *curNode = rootNode;
-    if(rootNode->value == value)
+    if (curNode->value == value)
     {
-        printf("Match");
         return 0;
     }
-    //printf("%i", curNode->low->value);
-    if (curNode->low->value != value)
+    if (curNode->value > value)
     {
-        //printf("No Match");
-        displayTreeOnEnter(curNode->low);
-        //printf("%i", curNode->low->value);
+        //printf("%i\n", curNode->value);
+        doesContain(value, curNode->low);
+        return 0;
     }
-    if (curNode->high->value != value)
+    if (curNode->value < value)
     {
-        //printf("No Match");
-        displayTreeOnEnter(curNode->high);
-        //printf("%i", curNode->low->value);
+        //printf("%i\n", curNode->value);
+        doesContain(value, curNode->high);
+        return 0;
     }
-    printf("Match");
-    return 0;
-
+    return 1;
 }
-
 int main (void)
 {
     //printf("hello\n");
@@ -133,11 +126,10 @@ int main (void)
     addNode(9);
     addNode(4);
     addNode(13);
-    addNode(7);
 
     //displayTreeOnEnter(rootNode);
     //displayTreeOnDeparture(rootNode);
-    doesContain(6);
+    doesContain(1, rootNode);
     printf("\n");
 }
 
