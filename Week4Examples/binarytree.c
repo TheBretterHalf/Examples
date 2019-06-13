@@ -93,21 +93,21 @@ int doesContain(int value, NODE *curNode)
 {
     if (curNode->value == value)
     {
-        return 0;
+        return 1;
     }
     if (curNode->value > value)
     {
         //printf("%i\n", curNode->value);
         doesContain(value, curNode->low);
-        return 0;
+        //return 0;
     }
     if (curNode->value < value)
     {
         //printf("%i\n", curNode->value);
         doesContain(value, curNode->high);
-        return 0;
+        //return 0;
     }
-    return 1;
+    return 0;
 }
 int main (void)
 {
