@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+//testing framework gives access to assert function tests if item inside of function brackets is true
+#include <assert.h>
 
 #define true 1
 #define false 0
@@ -89,25 +91,43 @@ void displayTreeOnDeparture(NODE *curNode)
     }
     //printf("%i, ", curNode->value);
 }
-int doesContain(int value, NODE *curNode)
+int doesContain(int value)
 {
-    if (curNode->value == value)
+    NODE *curNode = rootNode;
+    while(1)
     {
-        return 1;
-    }
-    if (curNode->value > value)
-    {
+        if (curNode->value == value)
+        {
+            printf("Match\n");
+            return 1;
+        }
+        if (curNode->value > value)
+        {
+            //printf("%i\n", curNode->value);
+            if (curNode->low == NULL)
+            {
+                return 0;
+            }
+            curNode = curNode->low;
+            continue;
+            //return 0;
+        }
         //printf("%i\n", curNode->value);
-        doesContain(value, curNode->low);
+        if (curNode->high == NULL)
+        {
+            return 0;
+        }
+        curNode = curNode->high;
+        continue;
         //return 0;
     }
-    if (curNode->value < value)
-    {
-        //printf("%i\n", curNode->value);
-        doesContain(value, curNode->high);
-        //return 0;
-    }
-    return 0;
+}
+
+void tests ()
+{
+
+    //assert(doesContain(10) && "tree does contain 10");
+
 }
 int main (void)
 {
@@ -126,10 +146,11 @@ int main (void)
     addNode(9);
     addNode(4);
     addNode(13);
+    //assert(doesContain(10) && "tree does contain 10");
 
     //displayTreeOnEnter(rootNode);
     //displayTreeOnDeparture(rootNode);
-    doesContain(1, rootNode);
+    doesContain(14);
     printf("\n");
 }
 
