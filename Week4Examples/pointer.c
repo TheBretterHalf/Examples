@@ -156,7 +156,24 @@ void freeListSelf()
     free(rootNode);
 
 }
-
+int doesContain(value)
+{
+    NODE *trav = rootNode;
+    while (trav!=NULL)
+    {
+        if(trav->value==value)
+        {
+            printf("Match\n");
+            break;
+        }
+        else
+        {
+            trav=trav->next;
+            continue;
+        }
+    }
+    return 1;
+}
 void displayList()
 {
     //should display
@@ -181,10 +198,10 @@ int main(void)
     addNode(8);
     addNode(17);
     //removeNode(8);
-    displayList();
-    freeList(rootNode);
+    // displayList();
+    // freeList(rootNode);
     //free(rootNode );
-
+    doesContain(13);
     // printf("%i\n%i\n", rootNode.next->next->value, rootNode.next->next->next->value);
 
     // int a = 5;
