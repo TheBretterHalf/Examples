@@ -129,6 +129,18 @@ void tests ()
     //assert(doesContain(10) && "tree does contain 10");
 
 }
+
+void freeListSelf()
+{
+    NODE *trav = rootNode;
+    while(trav->low!=NULL && trav->high!=NULL)
+    {
+
+    }
+    free(rootNode);
+
+}
+
 int main (void)
 {
     //printf("hello\n");
@@ -146,13 +158,74 @@ int main (void)
     addNode(9);
     addNode(4);
     addNode(13);
+    freeListSelf();
     //assert(doesContain(10) && "tree does contain 10");
 
     //displayTreeOnEnter(rootNode);
     //displayTreeOnDeparture(rootNode);
     doesContain(14);
+
     printf("\n");
 }
 
 //MVP, get 8 and 15 working.
 //get others working as well to
+
+// if (trav->high!=NULL && trav->low!=NULL)
+//         {
+//             //printf("moving through high branch\n");
+//             //printf("%i\n", trav->value);
+//             trav=trav->high;
+//             continue;
+//         }
+//         if(trav->high==NULL && trav->low!=NULL)
+//         {
+//             //printf("moving through low branch\n");
+//             trav=trav->low;
+//             continue;
+//         }
+//         if(trav->high!=NULL && trav->low==NULL)
+//         {
+//             trav=trav->high;
+//             continue;
+//         }
+//         if (trav->high==NULL && trav->low==NULL)
+//         {
+//             printf("%i", trav->value);
+//             free(trav);
+//             continue;
+//         }
+//         break;
+
+        // if(trav->low->low==NULL && trav->low->high==NULL)
+        // {
+        //     printf("%i\n", trav->low->value);
+        //     free(trav->low);
+        //     trav->low=NULL;
+        // }
+        // if(trav->high->high==NULL && trav->high->low==NULL)
+        // {
+        //     printf("%i\n", trav->high->value);
+        //     free(trav->high);
+        //     trav->high=NULL;
+        // }
+        // if(trav->high->high!=NULL)
+        // {
+        //     printf("%i\n", trav->high->value);
+        //     trav=trav->high;
+        // }
+        // if(trav->high->low!=NULL)
+        // {
+        //     printf("%i\n", trav->high->value);
+        //     trav=trav->high;
+        // }
+        // if(trav->low->low!=NULL)
+        // {
+        //     //printf("%i\n", trav->low->value);
+        //     trav=trav->low;
+        // }
+        // if(trav->low->high!=NULL)
+        // {
+        //     //printf("%i\n", trav->low->value);
+        //     trav=trav->low;
+        // }
