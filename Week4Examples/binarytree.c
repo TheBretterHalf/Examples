@@ -132,10 +132,22 @@ void tests ()
 
 void freeListSelf()
 {
-    NODE *trav = rootNode;
-    while(trav->low!=NULL && trav->high!=NULL)
+    while(rootNode->low!=NULL && rootNode->high!=NULL)
     {
-
+        NODE *trav = rootNode;
+        while (trav->low->low !=NULL || trav->low->high !=NULL)
+        {
+            if (trav->low->low !=NULL)
+            {
+                trav = trav->low;
+            }
+            if (trav->low->high!=NULL)
+            {
+                trav= trav->low;
+            }
+        }
+        free(trav->low);
+        trav->low = NULL;
     }
     free(rootNode);
 
