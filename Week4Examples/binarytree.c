@@ -127,7 +127,7 @@ void tests ()
 {
 
     //assert(doesContain(10) && "tree does contain 10");
-
+    //new line
 }
 
 void freeListSelf()
@@ -135,19 +135,15 @@ void freeListSelf()
     while(rootNode->low!=NULL && rootNode->high!=NULL)
     {
         NODE *trav = rootNode;
-        while (trav->low->low !=NULL || trav->low->high !=NULL)
+        while(trav->low->low!=NULL || trav->low->high!=NULL)
         {
-            if (trav->low->low !=NULL)
-            {
-                trav = trav->low;
-            }
-            if (trav->low->high!=NULL)
-            {
-                trav= trav->low;
-            }
+            trav=trav->low;
         }
-        free(trav->low);
-        trav->low = NULL;
+        while(trav->high->low!=NULL || trav->high->low!=NULL)
+        {
+            trav=trav->high;
+        }
+        if(trav->)
     }
     free(rootNode);
 
