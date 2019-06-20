@@ -130,9 +130,8 @@ void tests ()
     //new line
 }
 
-void freeListSelf()
+void freeListSelf(NODE *curNode)
 {
-    NODE *curNode = rootNode;
     if (curNode->low != NULL)
     {
         freeListSelf(curNode->low);
@@ -163,7 +162,7 @@ int main (void)
     addNode(9);
     addNode(4);
     addNode(13);
-    freeListSelf();
+    freeListSelf(rootNode);
     //assert(doesContain(10) && "tree does contain 10");
 
     //displayTreeOnEnter(rootNode);
