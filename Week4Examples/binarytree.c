@@ -132,21 +132,18 @@ void tests ()
 
 void freeListSelf()
 {
-    while(rootNode->low!=NULL && rootNode->high!=NULL)
+    NODE *curNode = rootNode;
+    if (curNode->low != NULL)
     {
-        NODE *trav = rootNode;
-        while(trav->low->low!=NULL || trav->low->high!=NULL)
-        {
-            trav=trav->low;
-        }
-        while(trav->high->low!=NULL || trav->high->low!=NULL)
-        {
-            trav=trav->high;
-        }
-        if(trav->)
+        freeListSelf(curNode->low);
     }
-    free(rootNode);
 
+    if (curNode->high != NULL)
+    {
+        freeListSelf(curNode->high);
+    }
+    //printf("%i, ", curNode->value);
+    free(curNode);
 }
 
 int main (void)
@@ -237,3 +234,18 @@ int main (void)
         //     //printf("%i\n", trav->low->value);
         //     trav=trav->low;
         // }
+
+    //         while(rootNode->low!=NULL && rootNode->high!=NULL)
+    // {
+    //     NODE *trav = rootNode;
+    //     while(trav->low->low!=NULL || trav->low->high!=NULL)
+    //     {
+    //         trav=trav->low;
+    //     }
+    //     while(trav->high->low!=NULL || trav->high->low!=NULL)
+    //     {
+    //         trav=trav->high;
+    //     }
+    //     if(trav->)
+    // }
+    // free(rootNode);
