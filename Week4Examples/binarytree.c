@@ -26,17 +26,17 @@ QUEUE *first;
 
 void popQueue()
 {
-
+    //remove last node from queue
 }
 
 void pushQueue()
 {
-
+    //populate to first item in queue
 }
 
 void lengthQueue()
 {
-
+    //display nodes in queue
 }
 
 void peekQueue()
