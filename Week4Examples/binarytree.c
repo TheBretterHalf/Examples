@@ -16,6 +16,34 @@ typedef struct NODE
 
 NODE *rootNode;
 
+typedef struct QUEUE
+{
+    NODE *pointer;
+    struct QUEUE *next;
+} QUEUE;
+
+QUEUE *first;
+
+void popQueue()
+{
+
+}
+
+void pushQueue()
+{
+
+}
+
+void lengthQueue()
+{
+
+}
+
+void peekQueue()
+{
+    //display last item in queue
+}
+
 void addNode (int value)
 {
     NODE *newNode = malloc(sizeof(NODE));
