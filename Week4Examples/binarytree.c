@@ -22,16 +22,28 @@ typedef struct QUEUE
     struct QUEUE *next;
 } QUEUE;
 
-QUEUE *first;
+QUEUE *first = rootNode;
 
 void popQueue()
 {
     //remove last node from queue
+
 }
 
 void pushQueue()
 {
     //populate to first item in queue
+    QUEUE *pointer = malloc(sizeof(QUEUE));
+    if (curNode->low != NULL)
+    {
+        pushQueue(curNode->low);
+    }
+
+    if (curNode->high != NULL)
+    {
+        pushQueue(curNode->high);
+    }
+
 }
 
 void lengthQueue()
