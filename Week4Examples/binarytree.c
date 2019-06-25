@@ -30,10 +30,12 @@ void popQueue()
 
 }
 
-void pushQueue()
+void pushQueue(NODE *curNode)
 {
     //populate to first item in queue
-    QUEUE *pointer = malloc(sizeof(QUEUE));
+    QUEUE *newAddress = malloc(sizeof(QUEUE));
+    newAddress->pointer = curNode;
+
     if (curNode->low != NULL)
     {
         pushQueue(curNode->low);
@@ -43,7 +45,7 @@ void pushQueue()
     {
         pushQueue(curNode->high);
     }
-
+    Queue->next = curNode;
 }
 
 void lengthQueue()
@@ -204,7 +206,7 @@ int main (void)
     addNode(13);
     freeListSelf(rootNode);
     //assert(doesContain(10) && "tree does contain 10");
-
+    pushQueue(rootNode);
     //displayTreeOnEnter(rootNode);
     //displayTreeOnDeparture(rootNode);
     doesContain(14);
