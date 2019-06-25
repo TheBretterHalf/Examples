@@ -18,11 +18,11 @@ NODE *rootNode;
 
 typedef struct QUEUE
 {
-    NODE *pointer;
+    NODE *address;
     struct QUEUE *next;
 } QUEUE;
 
-QUEUE *first = rootNode;
+QUEUE *first;
 
 void popQueue()
 {
@@ -30,22 +30,27 @@ void popQueue()
 
 }
 
-void pushQueue(NODE *curNode)
+void pushQueue()
 {
     //populate to first item in queue
-    QUEUE *newAddress = malloc(sizeof(QUEUE));
-    newAddress->pointer = curNode;
+    NODE *newNode = malloc(sizeof(NODE));
+    newNode->value = value;
+    newNode->next = NULL;
 
-    if (curNode->low != NULL)
+    if(rootNode==NULL)
     {
-        pushQueue(curNode->low);
+        rootNode = newNode;
+        return;
     }
 
-    if (curNode->high != NULL)
+    NODE *trav = rootNode;
+
+    while(trav->next != NULL)
     {
-        pushQueue(curNode->high);
+        trav = trav->next;
     }
-    Queue->next = curNode;
+    trav->next = newNode;
+
 }
 
 void lengthQueue()
@@ -206,7 +211,7 @@ int main (void)
     addNode(13);
     freeListSelf(rootNode);
     //assert(doesContain(10) && "tree does contain 10");
-    pushQueue(rootNode);
+    pushQueue();
     //displayTreeOnEnter(rootNode);
     //displayTreeOnDeparture(rootNode);
     doesContain(14);
@@ -290,3 +295,12 @@ int main (void)
     //     if(trav->)
     // }
     // free(rootNode);
+
+    //     QUEUE *newAddress = malloc(sizeof(QUEUE));
+    // newAddress->pointer = rootNode;
+    // newAddress->next = NULL;
+    // if (rootNode == NULL)
+    // {
+    //     rootNode = newAddress;
+    //     return;
+    // }
