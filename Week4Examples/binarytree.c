@@ -16,42 +16,17 @@ typedef struct NODE
 
 NODE *rootNode;
 
-typedef struct QUEUE
+typedef struct QNODE
 {
-    NODE *address;
-    struct QUEUE *next;
-} QUEUE;
+    NODE *node;
+    struct QNODE *next;
+} QNODE;
 
-QUEUE *first;
+QUEUE *headNode;
 
-void popQueue()
-{
-    //remove last node from queue
-
-}
-
-void pushQueue()
-{
-    //populate to first item in queue
-    NODE *newNode = malloc(sizeof(NODE));
-    newNode->value = value;
-    newNode->next = NULL;
-
-    if(rootNode==NULL)
-    {
-        rootNode = newNode;
-        return;
-    }
-
-    NODE *trav = rootNode;
-
-    while(trav->next != NULL)
-    {
-        trav = trav->next;
-    }
-    trav->next = newNode;
-
-}
+void addNode(int);
+NODE* pop();
+void push (NODE*);
 
 void lengthQueue()
 {
@@ -217,6 +192,50 @@ int main (void)
     doesContain(14);
 
     printf("\n");
+}
+
+void push (NODE* address)
+{
+    QNODE *newQNode = malloc(sizeof(QNODE));
+    newQNode->node = address;
+    // newNode->high = NULL;
+    // newNode->low = NULL;
+    newQNode->next = NULL;
+
+    if (headNode == NULL)
+    {
+        headNode = newQNode;
+        return;
+    }
+
+    NODE *trav = rootNode;
+    while(1)
+    {
+        if (newNode->value < trav->value)
+        {
+            if(trav->low == NULL)
+            {
+                trav->low = newNode;
+                return;
+            }
+            trav = trav->low;
+            //restart the loop
+            continue;
+            return;
+        }
+        else
+        {
+            if(trav->high == NULL)
+            {
+                trav->high = newNode;
+                return;
+            }
+            trav = trav->high;
+            continue;
+
+        }
+
+    }
 }
 
 //MVP, get 8 and 15 working.
