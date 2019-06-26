@@ -16,6 +16,8 @@ typedef struct NODE
 
 NODE *rootNode;
 
+//display queue
+
 typedef struct QNODE
 {
     NODE *node;
@@ -220,6 +222,15 @@ NODE* pop()
     //return the address of a bi-Node
     return temp;
 }
+
+void displayqueue()
+{
+    //start at root
+    //add any children nodes to queue
+    //print value
+    //get the item queue
+}
+
 
 //MVP, get 8 and 15 working.
 //get others working as well to
