@@ -22,21 +22,11 @@ typedef struct QNODE
     struct QNODE *next;
 } QNODE;
 
-QUEUE *headNode;
+QNODE *headNode;
 
 void addNode(int);
 NODE* pop();
 void push (NODE*);
-
-void lengthQueue()
-{
-    //display nodes in queue
-}
-
-void peekQueue()
-{
-    //display last item in queue
-}
 
 void addNode (int value)
 {
@@ -184,13 +174,16 @@ int main (void)
     addNode(9);
     addNode(4);
     addNode(13);
+    push(rootNode);
+    push(rootNode->low);
+    push(rootNode->high);
+    printf("%i\n", pop()->value);
+    printf("%i\n", pop()->value);
     freeListSelf(rootNode);
     //assert(doesContain(10) && "tree does contain 10");
-    pushQueue();
     //displayTreeOnEnter(rootNode);
     //displayTreeOnDeparture(rootNode);
     doesContain(14);
-
     printf("\n");
 }
 
@@ -198,44 +191,34 @@ void push (NODE* address)
 {
     QNODE *newQNode = malloc(sizeof(QNODE));
     newQNode->node = address;
-    // newNode->high = NULL;
-    // newNode->low = NULL;
     newQNode->next = NULL;
 
-    if (headNode == NULL)
+    if(headNode==NULL)
     {
         headNode = newQNode;
         return;
     }
 
-    NODE *trav = rootNode;
-    while(1)
+    QNODE *trav = headNode;
+
+    while(trav->next != NULL)
     {
-        if (newNode->value < trav->value)
-        {
-            if(trav->low == NULL)
-            {
-                trav->low = newNode;
-                return;
-            }
-            trav = trav->low;
-            //restart the loop
-            continue;
-            return;
-        }
-        else
-        {
-            if(trav->high == NULL)
-            {
-                trav->high = newNode;
-                return;
-            }
-            trav = trav->high;
-            continue;
-
-        }
-
+        trav = trav->next;
     }
+    trav->next = newQNode;
+}
+
+NODE* pop()
+{
+    //temp store the headNode
+    NODE* temp = headNode->node;
+    //free(headNode);
+    QNODE *qTemp = headNode;
+    //reassign headNode
+    headNode = qTemp->next;
+    free(qTemp);
+    //return the address of a bi-Node
+    return temp;
 }
 
 //MVP, get 8 and 15 working.
